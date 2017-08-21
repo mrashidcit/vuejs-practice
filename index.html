@@ -25,13 +25,31 @@
     </select>
 
     <br>
-
+    <p>Checkbox and Radio</p>
     <input type="checkbox" 
         v-model="toggle"
         v-bind:true-value="a" 
         v-bind:false-value="b" >
 
     <input type="radio" v-model="pick" v-bind:value="a">
+    <br>
+
+    <p> inline object literal in Select Options</p>
+    <select v-model="selected">
+        <!-- inlin3 object literal -->
+        <option v-bind:value="{ number: 123}">123</option>
+    </select>
+    <br>
+
+    <p>.lazy</p>
+    <input type="text" v-model.lazy="msg">
+    <br>
+    <span>{{ msg }}</span>
+
+    <input type="number" v-model.number="age">
+
+
+
 
     
 
@@ -42,9 +60,11 @@
     var app = new Vue({
       el: '#app',
       data: {
+          age: 23,
+          msg: '',
           a: 'a',
           b: 'b',
-          selected: 'abc',
+          selected: { number: 123 },
           options: [
               { text: 'One', value: 'A' },
               { text: 'Two', value: 'B' },
